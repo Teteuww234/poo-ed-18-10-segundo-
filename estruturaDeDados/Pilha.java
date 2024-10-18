@@ -1,33 +1,33 @@
 package estruturaDeDados;
 
 public class Pilha {
-    private int valores;
+    private int[] valores;
     private int topo;
-    
-    public int getValores() {
-        return valores;
-    }
+    private final int CAPACIDADE = 10;
 
-    public void setValores(int valores) {
-        this.valores = valores;
+    public Pilha(){
+        valores = new int [CAPACIDADE];
+        topo--;
     }
-
-    public int getTopo() {
-        return topo;
-    }
-
-    public void setTopo(int topo) {
-        this.topo = topo;
-    }
-    public pilha(){
-        valores = new int[10];
-    }
-
-    public void Adicionar(int num){
-        valores[num] = 10 ;
+    public void Adicionar(int valor){
+        if (topo < CAPACIDADE - 1) {
+            topo++;
+            valores[topo] = valor;
+            System.out.println("Valor adicionado" + valores);
+        } else {
+            System.out.println("Pilha cheia, não foi possivel adicionar o valor" + valor);
+            
+        }
     }
     
     public void retirar(){
+        if (topo >= 0) {
+            int valor = valores[topo];
+            topo--;
+        } else {
+            System.out.println("Pilha vazia, não foi possivel retirar um valor" );
+            return -1;
+        }
         
     }
 }
